@@ -370,4 +370,4 @@ Explaining in simple words
 ```
 Suppose we have these buildings of these heights.
 
-![Graph]("D:\ToDoList\Algoritms\Stacks\Notes\MaximumAreaHistogram.png")
+![Graph]("https://github.com/manas1803/Algoritms/blob/main/Stacks/Notes/MaximumAreaHistogram.png")
