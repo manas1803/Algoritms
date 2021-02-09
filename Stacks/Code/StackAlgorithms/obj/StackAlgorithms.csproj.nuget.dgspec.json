@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\To Do List\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj": {}
+    "D:\\ToDoList\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj": {}
   },
   "projects": {
-    "D:\\To Do List\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj": {
+    "D:\\ToDoList\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\To Do List\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj",
+        "projectUniqueName": "D:\\ToDoList\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj",
         "projectName": "StackAlgorithms",
-        "projectPath": "D:\\To Do List\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj",
+        "projectPath": "D:\\ToDoList\\Algoritms\\Stacks\\Code\\StackAlgorithms\\StackAlgorithms.csproj",
         "packagesPath": "C:\\Users\\11201\\.nuget\\packages\\",
-        "outputPath": "D:\\To Do List\\Algoritms\\Stacks\\Code\\StackAlgorithms\\obj\\",
+        "outputPath": "D:\\ToDoList\\Algoritms\\Stacks\\Code\\StackAlgorithms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

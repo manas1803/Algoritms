@@ -18,6 +18,7 @@ namespace StackAlgorithms
         {
             List<int> li = new List<int>();
             Stack<int> st = new Stack<int>();
+            Stack<int> sta = new Stack<int>(3);
             for(int i = n - 1; i >= 0; i--)
             {
                 if (st.Count == 0)

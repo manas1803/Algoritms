@@ -22,7 +22,10 @@ namespace StackAlgorithms
             //ssp.Main();
 
             MaximumAreaHistogram mah = new MaximumAreaHistogram();
-            mah.Main();
+            //mah.Main();
+
+            MaximumAreaRectangleBinaryMatrix mbm = new MaximumAreaRectangleBinaryMatrix();
+            mbm.Main();
         }
     }
 }

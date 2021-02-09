@@ -9,9 +9,6 @@
 - [Stock Span Problem](#stock-span-problem)
 - [Maximum Area of Histogram](#maximum-area-of-histogram)
 - [Maximum Area Rectangle in Binary Matrix](#maximum-area-rectangle-in-binary-matrix)
-- [Rain Water Trapping](#rain-water-trapping)
-- [Minimum Element in Stack with extra space](#minimum-element-in-stack-with-extra-space)
-- [Minimum Element in Stack with O(1) space](##minimum-element-in-stack-with-o(1)-space)
 ---
 ### **Stacks Introduction**
 Stack is a dara structure with the property of Last in First Out(LIFO). The concept of stack is generally applied in questions where when we apply the brute force we will get the result in O(n^2).
@@ -371,3 +368,230 @@ Explaining in simple words
 Suppose we have these buildings of these heights.
 
 ![Graph]("https://github.com/manas1803/Algoritms/blob/main/Stacks/Notes/MaximumAreaHistogram.png")
+
+Now as we can see that for 6 we can have area only of 6 as after 6 we have height of 2. Similarly for 2 we will have till 1 so width becomes 4 and value becomes 2.
+
+Similarly for others.
+
+Now in such an array we need to find the maximum area.
+The simplest logic as we can see is we need to find Nearest Smallest To Left and Nearest Smallest To Right.
+
+
+Make there count and then find the width 
+
+Multiply it by value and we will have an array for all heights with the given areas.
+
+Then in that array find the maximum value.
+
+The code for the above is :-
+```C#
+public int MaxArray(List<int> left,List<int> right,int[] arr,int n){
+    int max=0;
+    int[] result = new int[n];
+    for(int i=0;i<n;i++){
+        result[i] = (right[i]-left[i]-1)*arr[i];
+    }
+    for(int i=0;i<n;i++){
+        if(result[i]>max)
+        max=result[i];
+    }
+    return max;
+}
+
+public List<int> IndexNSR(int[] arr,int n){
+    int pseudoindex = n;
+    List<int> li = new List<int>();
+    Stack<int> st = new Stack<int>();
+    for(int i=n-1;i>=0;i--){
+        if(st.Count==0){
+            li.Add(pseudoindex);
+        }
+        else if(st.Count>0 && arr[st.Peek()]<arr[i]){
+            li.Add(st.Peek());
+        }
+        else if(st.Count>0 && arr[st.Peek()]>=arr[i]){
+            while(st.Count>0 && arr[st.Peek()]>=arr[i]){
+                st.Pop();
+            }
+            if(st.Count==0){
+                li.Add(pseudoindex);
+            }
+            else if(arr[st.Peek()]<arr[i]){
+                li.Add(st.Peek());
+            }
+        }
+        st.Push(i);
+    }
+    li.Reverse();
+    return li;
+}
+public List<int> IndexNSL(int[]arr,int n){
+    int pseudoindex=-1;
+    Stack<int> st = new Stack<int>();
+    List<int> li = new List<int>();
+    for(int i=0;i<n;i++){
+        if(st.Count==0){
+            li.Add(pseudoIndex);
+        }
+        else if(st.Count>0 && arr[st.Peek()]<arr[i]){
+            li.Add(st.Peek());
+        }
+        else if(st.Count>0 && arr[st.Peek()]>=arr[i]){
+            while(st.Count>0 && arr[st.Peek()]>=arr[i]){
+                st.Pop();
+            }
+            if(st.Count==0){
+                li.Add(pseudoindex);
+            }
+            else if(arr[st.Peek()]<arr[i]){
+                li.Add(st.Peek());
+            }
+        }
+        st.Push(i);
+    }
+    return li;
+}
+```
+> The max returned from the method will be our answer that we require.
+
+[^Top](#content)
+
+---
+
+### **Maximum Area Rectangle in Binary Matrix**
+This question is just a follow up of the maximum area of histogram problem.
+In this question we are given a matrix(2d array) and in that we need to find the maximum area that can be produced.
+
+```
+    0   1   2   3
+ 0  0   1   1   0
+ 1  1   1   1   1
+ 2  1   1   1   1
+ 3  1   0   0   1
+```
+Now in this binary matrix we want the max area. As we can see that the area max will be 8.
+**From arr[0,1] to arr[2,3]**
+
+How to approach the problem :-
+
+1. As we already know how to get area for 1-d array(Maximum area Histogram problem) we will break this into that problem and solve.
+
+2. Now if we closely look the first row we have 0 1 1 0
+
+3. We can assume it as the first list of building whose max height we want
+
+4. Here we will get 2 as answer.
+5. Now we go down the second row. Here there are 2 important points.
+    - First the heights of the building here will be sum of previous row + this row and we will store them. We do this because then for the third row we just need to add the values in the 3rd row and we get the new values each time.
+    - Secondly if we encounter any zero after the first row we will make the whole height of the building as 0 for further calculations. This is done because when we encounter 0 we can't go past it in further rows.
+
+6. Then for each case we apply MAH and we will get maximum value each time.
+7. We compare it with the maximum value of the previous rows and then atlast print the maximum value.
+
+Code for the above is as follows :-
+```C#
+public int BinaryMatrixMaxArea(int[,] binaryMatrix,int n,int m){
+    List<int> hn = new List<int>();
+    int max=-1;
+    for(int i=0;i<m;i++){
+        hn.Add(binaryMatrix[0,m]);
+    }
+    max = MaximumAreaHistogram(hn.ToArray(),hn.ToArray().Length);
+
+    for(int i=1;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(binaryMatrix[i,j]==0){
+                hn[j]==0;
+            }
+            else{
+                hn[j] = hn[j] + binaryMatrix[i,j];
+            }
+        }
+        max = (max,MaximumAreaHistogram(hn.ToArray(),hn.ToArray().Length));
+    }
+    Console.WriteLine(max);
+}
+
+public int MaximumAreaHistogram(int[] arr,int n){
+    int[] result = new int[n];
+    int max = -1;
+    List<int> left = nearestSmallestLeft(arr,n);
+    List<int> right = nearestSmallestRight(arr,n);
+    for(int i=0;i<n;i++){
+        result[i] = (right[i]-left[i]-1)*arr[i];
+    }
+    max = MaxinArray(result,n);
+    return max;
+}
+
+public List<int> nearestSmallestLeft(int[] arr,int n){
+    List<int> li = new List<int>();
+    Stack<int> st = new Stack<int>();
+    int pseudoIndex = -1;
+    for(int i=0;i<n;i++){
+        if(st.Count==0){
+            li.Add(pseudoIndex);
+        }
+        else if(st.Count>0 && arr[st.Peek()]<arr[i]){
+            li.Add(st.Peek());
+        }
+        else if(st.Count>0 && arr[st.Peek()]>=arr[i]){
+            while(st.Count>0 && arr[st.Peek()]>=arr[i]){
+                st.Pop();
+            }
+            if(st.Count==0){
+                li.Add(pseudoIndex);
+            }
+            else if(arr[st.Peek()]<arr[i]){
+                li.Add(st.Peek());
+            }
+        }
+        st.Push(i);
+    }
+}
+
+public List<int> nearestSmallestRight(int[] arr,int n){
+    List<int> li = new List<int>();
+    Stack<int> st = new Stack<int>();
+    int pseudoIndex = n;
+    for(int i=n-1;i>=0;i--){
+        if(st.Count==0){
+            li.Add(pseudoIndex);
+        }
+        else if(st.Count>0 && arr[st.Peek()]<arr[i]){
+            li.Add(st.Peek());
+        }
+        else if(st.Count>0 && arr[st.Peek()]>=arr[i]){
+            while(st.Count>0 && arr[st.Peek()]>=arr[i]){
+                st.Pop();
+            }
+            if(st.Count==0){
+                li.Add(pseudoIndex);
+            }
+            else if(arr[st.Peek()]<arr[i]){
+                li.Add(st.Peek());
+            }
+        }
+        st.Push(i);
+    }
+}
+
+public int MaxinArray(int[] arr,int n){
+    int max=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]>max)
+        max=arr[i];
+    }
+    return max;
+}
+
+public int MaxOfTwoNumbers(int a,int b){
+    if(a>b)
+        return a;
+    return b;
+}
+```
+[^Top](#content)
+
+---
+

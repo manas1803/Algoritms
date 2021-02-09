@@ -11,18 +11,23 @@ namespace StackAlgorithms
             int[] arr = { 6, 2, 5, 4, 5, 1, 6 };
             List<int> left = IndexNSL(arr, arr.Length);
             List<int> right = IndexNSR(arr, arr.Length);
-            int[] result = new int[arr.Length];
+            int max = MaxInArray(left,right,arr,arr.Length);
+            Console.WriteLine(max);
+        }
+        public int MaxInArray(List<int>left,List<int>right,int[] arr,int n)
+        {
+            int[] result = new int[n];
             for (int i = 0; i < result.Length; i++)
             {
                 result[i] = (right[i] - left[i] - 1) * arr[i];
             }
             int max = 0;
-            for(int i = 0; i < result.Length; i++)
+            for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] > max)
                     max = result[i];
             }
-            Console.WriteLine(max);
+            return max;
         }
         public List<int> IndexNSR(int[] arr,int n)
         {
