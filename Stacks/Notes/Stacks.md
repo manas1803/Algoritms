@@ -367,7 +367,7 @@ Explaining in simple words
 ```
 Suppose we have these buildings of these heights.
 
-![Graph]("https://github.com/manas1803/Algoritms/blob/main/Stacks/Notes/MaximumAreaHistogram.png")
+![Maximum Area Histogram](Images/MaximumAreaHistogram.png)
 
 Now as we can see that for 6 we can have area only of 6 as after 6 we have height of 2. Similarly for 2 we will have till 1 so width becomes 4 and value becomes 2.
 

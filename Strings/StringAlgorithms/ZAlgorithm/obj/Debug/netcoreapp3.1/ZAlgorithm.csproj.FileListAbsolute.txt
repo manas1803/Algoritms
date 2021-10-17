@@ -1,0 +1,13 @@
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.exe
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.deps.json
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.runtimeconfig.json
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.runtimeconfig.dev.json
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.dll
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\bin\Debug\netcoreapp3.1\ZAlgorithm.pdb
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.csprojAssemblyReference.cache
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.AssemblyInfoInputs.cache
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.AssemblyInfo.cs
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.csproj.CoreCompileInputs.cache
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.dll
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.pdb
+D:\ToDoList\Algoritms\Strings\StringAlgorithms\ZAlgorithm\obj\Debug\netcoreapp3.1\ZAlgorithm.genruntimeconfig.cache
